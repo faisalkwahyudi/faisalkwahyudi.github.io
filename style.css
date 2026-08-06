@@ -396,13 +396,15 @@ body {
 
     .sidebar {
         width: 320px;
-        height: 100vh;
+        max-height: 100vh; /* limit sidebar height to viewport */
         position: sticky;
         top: 0;
         padding-top: 60px;
         display: flex;
         flex-direction: column;
         box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
+        overflow: auto; /* enable internal scrolling only when needed */
+        -webkit-overflow-scrolling: touch;
     }
 
     .sidebar h1 {
