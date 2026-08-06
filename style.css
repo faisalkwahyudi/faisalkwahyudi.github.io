@@ -2,16 +2,26 @@
 :root {
     --primary: #2980b9;
     --primary-dark: #2c3e50;
+    --primary-light: #3498db;
     --bg-color: #f0f2f5;
     --card-bg: #ffffff;
     --text-main: #2c3e50;
     --text-muted: #6c7a89;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --border-color: #e1e8ed;
+    --transition: all 0.3s ease;
 }
 
 /* Reset & Base */
 html {
     scroll-behavior: smooth;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -19,6 +29,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     -webkit-tap-highlight-color: transparent;
+    line-height: 1.6;
 }
 
 /* Layout Utama */
@@ -46,21 +57,29 @@ body {
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.profile-img-container:hover {
+    transform: scale(1.05);
 }
 
 .profile-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .sidebar h1 {
     margin: 0;
     font-size: 1.6rem;
     letter-spacing: 0.5px;
+    font-weight: 700;
 }
-.sidebar p {
+
+.sidebar p, .tagline {
     margin: 8px 0 0;
     font-size: 1rem;
     opacity: 0.9;
@@ -85,30 +104,42 @@ body {
     font-size: 0.9rem;
     font-weight: 600;
     backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    cursor: pointer;
+    display: inline-block;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
     background: rgba(255, 255, 255, 0.3);
     border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+.btn:active {
+    transform: translateY(0);
+}
+
 /* Navigasi Desktop (Disembunyikan di Mobile) */
 .desktop-nav {
     display: none;
     margin-top: 40px;
     text-align: left;
     padding: 0 20px;
+    flex-direction: column;
+    gap: 8px;
 }
+
 .desktop-nav a {
     display: block;
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     padding: 12px 15px;
-    margin-bottom: 8px;
     border-radius: 8px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
+
 .desktop-nav a:hover, .desktop-nav a.active {
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -119,7 +150,7 @@ body {
 .main-content {
     padding: 20px;
     flex: 1;
-    padding-bottom: 90px; 
+    padding-bottom: 90px;
 }
 
 .content-container {
@@ -133,12 +164,13 @@ body {
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
 }
+
 .card:hover {
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     transform: translateY(-2px);
 }
 
@@ -154,37 +186,64 @@ body {
     color: var(--primary-dark);
 }
 
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.skill-category h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0 0 15px 0;
+}
+
 /* List & Timeline */
 .timeline {
     position: relative;
     padding-left: 20px;
-    border-left: 2px solid #e1e8ed;
+    border-left: 3px solid var(--border-color);
 }
+
 .list-item {
     position: relative;
     margin-bottom: 25px;
+    padding-bottom: 15px;
 }
+
 .list-item:last-child {
     margin-bottom: 0;
 }
+
 .list-item::before {
     content: '';
     position: absolute;
-    left: -27px;
+    left: -26px;
     top: 5px;
     width: 12px;
     height: 12px;
     background-color: var(--primary);
     border-radius: 50%;
     border: 3px solid var(--card-bg);
+    box-shadow: 0 0 0 3px var(--border-color);
 }
 
 .list-title {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 4px;
     color: var(--text-main);
 }
+
+.list-company {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
 .list-subtitle {
     font-size: 0.9rem;
     color: var(--primary);
@@ -195,6 +254,7 @@ body {
     padding: 3px 10px;
     border-radius: 12px;
 }
+
 .list-desc {
     font-size: 0.95rem;
     color: var(--text-muted);
@@ -206,7 +266,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 15px;
 }
+
 .chip {
     background: #e9eef6;
     border: 1px solid #d4def0;
@@ -215,23 +277,57 @@ body {
     font-size: 0.85rem;
     color: var(--primary-dark);
     font-weight: 600;
-    transition: all 0.2s ease;
+    transition: var(--transition);
+    cursor: default;
 }
+
 .chip:hover {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
+    transform: translateY(-2px);
 }
 
-/* Sertifikasi */
-.cert-list {
-    padding-left: 20px;
-    margin: 0;
-    color: var(--text-muted);
-    line-height: 1.8;
+/* Sertifikasi Grid */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
 }
-.cert-list li::marker {
-    color: var(--primary);
+
+.cert-item {
+    background: linear-gradient(135deg, #e9eef6, #f0f5fb);
+    border: 1px solid #d4def0;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.cert-item:hover {
+    background: linear-gradient(135deg, var(--primary), #3498db);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(41, 128, 185, 0.2);
+}
+
+.cert-icon {
+    font-size: 1.8rem;
+}
+
+.cert-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.cert-item:hover .cert-name {
+    color: white;
 }
 
 /* Navigasi Bawah (App Style untuk Mobile) */
@@ -244,10 +340,12 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 12px 0;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
     z-index: 1000;
+    border-top: 1px solid var(--border-color);
 }
+
 .nav-item {
     text-align: center;
     color: var(--text-muted);
@@ -258,10 +356,19 @@ body {
     align-items: center;
     gap: 5px;
     font-weight: 500;
+    transition: var(--transition);
+    padding: 5px;
 }
-.nav-item.active {
+
+.nav-item:hover {
     color: var(--primary);
 }
+
+.nav-item.active {
+    color: var(--primary);
+    font-weight: 700;
+}
+
 .nav-icon {
     font-size: 1.4rem;
 }
@@ -271,7 +378,7 @@ body {
    ========================================= */
 @media (min-width: 768px) {
     .layout-wrapper {
-        flex-direction: row; 
+        flex-direction: row;
     }
 
     .sidebar {
@@ -282,25 +389,42 @@ body {
         padding-top: 60px;
         display: flex;
         flex-direction: column;
-        box-shadow: 4px 0 20px rgba(0,0,0,0.05);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
+        overflow-y: auto;
+    }
+
+    .sidebar h1 {
+        font-size: 1.8rem;
     }
 
     .desktop-nav {
-        display: block; 
+        display: flex;
         flex: 1;
     }
 
     .bottom-nav {
-        display: none; 
+        display: none;
     }
 
     .main-content {
         padding: 50px 40px;
-        padding-bottom: 50px; 
+        padding-bottom: 50px;
+        flex: 1;
+        overflow-y: auto;
     }
 
-    #profil, #skill, #pengalaman {
+    #profil, #skill, #pengalaman, #sertifikasi {
         scroll-margin-top: 40px;
+    }
+
+    /* Skills Grid - Responsive untuk desktop */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Certificate Grid untuk Desktop */
+    .cert-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 
     /* Styling Tautan Media Sosial */
@@ -325,21 +449,59 @@ body {
     .social-btn:hover {
         background: rgba(255, 255, 255, 0.25);
     }
+}
 
-    /* --- SIDEBAR / HEADER --- */
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+
+    .content-container {
+        max-width: 900px;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a2e;
+        --card-bg: #16213e;
+        --text-main: #eaeaea;
+        --text-muted: #a8a8a8;
+        --border-color: #2a2a4e;
+    }
+
+    .card {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .bottom-nav,
+    .action-buttons {
+        display: none;
+    }
+
+    .layout-wrapper {
+        flex-direction: column;
+    }
+
     .sidebar {
-    /* Opsi 1: Menggunakan gambar background dengan overlay warna gelap agar teks tetap terbaca */
-        background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(52, 152, 219, 0.85)), url('header-bg.jpg');
-        background-size: cover;
-        background-position: center;
-    
-    /* Opsi 2 (Cadangan jika tanpa gambar): 
-    background: linear-gradient(135deg, #3498db, #2c3e50); */
-    
-        color: white;
-        padding: 40px 20px 30px;
-        text-align: center;
-        position: relative;
-        z-index: 10;
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    .main-content {
+        padding-bottom: 20px;
     }
 }
