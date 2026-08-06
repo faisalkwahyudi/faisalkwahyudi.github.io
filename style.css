@@ -61,6 +61,7 @@ body {
     border: 4px solid white;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
     transition: transform 0.25s ease;
+    flex-shrink: 0; /* jangan kecilkan ketika sidebar menjadi area flex */
 }
 
 .profile-img-container:hover {
@@ -79,12 +80,14 @@ body {
     font-size: 1.4rem;
     letter-spacing: 0.4px;
     font-weight: 700;
+    flex-shrink: 0; /* pastikan nama tidak tersusut */
 }
 
 .sidebar p, .tagline {
     margin: 6px 0 0;
     font-size: 0.95rem;
     opacity: 0.95;
+    flex-shrink: 0;
 }
 
 /* Tombol Aksi Cepat (Email, WA, & Media Sosial) */
@@ -94,6 +97,7 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 18px;
+    flex-shrink: 0;
 }
 
 .btn {
@@ -132,6 +136,9 @@ body {
     padding: 0 8px;
     flex-direction: column;
     gap: 8px;
+    /* allow nav itself to scroll when sidebar has limited height */
+    max-height: calc(100vh - 340px);
+    overflow: auto;
 }
 
 .desktop-nav a {
@@ -398,13 +405,35 @@ body {
         width: 320px;
         max-height: 100vh; /* limit sidebar height to viewport */
         position: sticky;
-        top: 0;
-        padding-top: 60px;
+        top: calc(0px + env(safe-area-inset-top)); /* respect notch / safe area */
+        padding-top: calc(60px + env(safe-area-inset-top));
         display: flex;
         flex-direction: column;
         box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
         overflow: auto; /* enable internal scrolling only when needed */
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: rgba(255,255,255,0.18) transparent;
+    }
+
+    /* WebKit scrollbars for sidebar */
+    .sidebar::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.16);
+        border-radius: 999px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255,255,255,0.22);
     }
 
     .sidebar h1 {
