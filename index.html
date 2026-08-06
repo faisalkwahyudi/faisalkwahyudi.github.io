@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Profil profesional Faisal Wahyudi Kharie — IT Professional, Network & Graphic Design.">
+    <meta name="keywords" content="Faisal, Kharie, IT Professional, Network, Graphic Design, Portfolio">
+    <meta name="author" content="Faisal Wahyudi Kharie">
+    <meta name="theme-color" content="#2980b9">
     <title>Web Portofolio | Faisal Kharie</title>
     <!-- Menghubungkan ke file CSS terpisah -->
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 
@@ -16,27 +21,26 @@
             
             <!-- Foto Profil -->
             <div class="profile-img-container">
-                <!-- GANTI 'foto-anda.jpg' DENGAN NAMA FILE FOTO ANDA -->
-                <img src="me.jpg" alt="Foto Profil Faisal" class="profile-img">
+                <img src="me.jpg" alt="Foto Profil Faisal Wahyudi Kharie" class="profile-img">
             </div>
 
             <h1>N. Faisal Wahyudi Kharie</h1>
-            <p>IT Professional | Network & Graphic Design</p>
+            <p class="tagline">IT Professional | Network & Graphic Design</p>
             
             <div class="action-buttons">
-                <a href="mailto:faisalkharie92@gmail.com" class="btn">✉️ Email</a>
-                <a href="https://wa.me/qr/63MAXQRK7QF3L1" class="btn" target="_blank" rel="noopener noreferrer">💬 Chat WA</a>
-                <!-- Tombol Media Sosial dengan style yang sama (.btn) -->
-                <a href="https://instagram.com/n_fwahyudi/" class="btn" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-                <a href="https://facebook.com/khariefaisal/" class="btn" target="_blank" rel="noopener noreferrer">👥 Facebook</a>
-                <a href="https://www.linkedin.com/in/faisalkharie/" class="btn" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                <a href="mailto:faisalkharie92@gmail.com" class="btn" title="Kirim Email">✉️ Email</a>
+                <a href="https://wa.me/qr/63MAXQRK7QF3L1" class="btn" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp">💬 Chat WA</a>
+                <a href="https://instagram.com/n_fwahyudi/" class="btn" target="_blank" rel="noopener noreferrer" title="Instagram">📸 Instagram</a>
+                <a href="https://facebook.com/khariefaisal/" class="btn" target="_blank" rel="noopener noreferrer" title="Facebook">👥 Facebook</a>
+                <a href="https://www.linkedin.com/in/faisalkharie/" class="btn" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼 LinkedIn</a>
             </div>
 
             <!-- Navigasi khusus Desktop -->
-            <nav class="desktop-nav">
+            <nav class="desktop-nav" aria-label="Navigasi utama">
                 <a href="#profil" class="desk-nav-item">Tentang Saya</a>
                 <a href="#skill" class="desk-nav-item">Kemampuan</a>
                 <a href="#pengalaman" class="desk-nav-item">Pengalaman Kerja</a>
+                <a href="#sertifikasi" class="desk-nav-item">Sertifikasi</a>
             </nav>
         </aside>
 
@@ -48,19 +52,41 @@
                 <section class="card" id="profil">
                     <h2 class="card-title">👤 Tentang Saya</h2>
                     <div class="list-desc">
-                        Lahir di Ternate, 13 Maret 1992. Saya berdedikasi tinggi di bidang Teknologi Informasi dengan keahlian dalam manajemen sistem, infrastruktur jaringan, serta desain komunikasi visual. Berdomisili di Jl. Bogenvil, Kel. Toboko, saya selalu antusias untuk terus belajar dan mengadopsi teknologi baru.
+                        Lahir di Ternate, 13 Maret 1992. Saya berdedikasi tinggi di bidang Teknologi Informasi dengan keahlian dalam manajemen sistem, infrastruktur jaringan, serta desain komunikasi visual. Dengan pengalaman lebih dari 8 tahun di industri IT, saya telah berkontribusi pada berbagai proyek infrastruktur jaringan dan pengembangan sistem informasi di berbagai institusi. Passion saya adalah membantu organisasi mengoptimalkan infrastruktur teknologi mereka dan menciptakan pengalaman pengguna yang luar biasa melalui desain yang inovatif.
                     </div>
                 </section>
 
                 <!-- Kemampuan Utama -->
                 <section class="card" id="skill">
                     <h2 class="card-title">⚡ Kemampuan Keahlian</h2>
-                    <div class="chips-container">
-                        <span class="chip">Desain Grafis</span>
-                        <span class="chip">UI/UX Design</span>
-                        <span class="chip">Manajemen Server & Hardware</span>
-                        <span class="chip">Network & Infrastructure</span>
-                        <span class="chip">Cybersecurity Foundation</span>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Networking & Infrastructure</h3>
+                            <div class="chips-container">
+                                <span class="chip">Network Configuration</span>
+                                <span class="chip">Server Management</span>
+                                <span class="chip">System Administration</span>
+                                <span class="chip">Infrastructure Design</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Design & Creative</h3>
+                            <div class="chips-container">
+                                <span class="chip">Desain Grafis</span>
+                                <span class="chip">UI/UX Design</span>
+                                <span class="chip">Visual Communication</span>
+                                <span class="chip">Brand Design</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Security & Maintenance</h3>
+                            <div class="chips-container">
+                                <span class="chip">Cybersecurity Foundation</span>
+                                <span class="chip">Hardware Maintenance</span>
+                                <span class="chip">Troubleshooting</span>
+                                <span class="chip">Network Monitoring</span>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -70,47 +96,67 @@
                     
                     <div class="timeline">
                         <div class="list-item">
-                            <div class="list-title">National Support Associate & Freelance | PT Berca Hardayaperkasa</div>
+                            <div class="list-title">National Support Associate & Freelance</div>
+                            <div class="list-company">PT Berca Hardayaperkasa</div>
                             <div class="list-subtitle">Jan 2026 - Sekarang</div>
-                            <div class="list-desc">Memberikan dukungan teknis dan operasional IT, serta menangani penyelesaian masalah jaringan secara proaktif.</div>
+                            <div class="list-desc">Memberikan dukungan teknis dan operasional IT, serta menangani penyelesaian masalah jaringan secara proaktif. Berkolaborasi dengan tim untuk memastikan infrastruktur IT berjalan optimal dan mendukung operasional bisnis perusahaan.</div>
                         </div>
 
                         <div class="list-item">
-                            <div class="list-title">Staf IT | RSU Dharma Ibu Ternate</div>
+                            <div class="list-title">Staf IT</div>
+                            <div class="list-company">RSU Dharma Ibu Ternate</div>
                             <div class="list-subtitle">2022 - 2024</div>
-                            <div class="list-desc">Mengontrol dan mengelola sistem informasi rumah sakit, jaringan internet, hardware server, serta kebutuhan desain grafis instansi.</div>
+                            <div class="list-desc">Mengontrol dan mengelola sistem informasi rumah sakit, jaringan internet, hardware server, serta kebutuhan desain grafis instansi. Melakukan maintenance rutin dan troubleshooting untuk memastikan layanan IT beroperasional 24/7 mendukung operasional rumah sakit.</div>
                         </div>
 
                         <div class="list-item">
-                            <div class="list-title">Maintenance Jaringan | Loka Monitor SFR</div>
+                            <div class="list-title">Maintenance Jaringan</div>
+                            <div class="list-company">Loka Monitor SFR</div>
                             <div class="list-subtitle">2020</div>
-                            <div class="list-desc">Bertanggung jawab atas pemeliharaan rutin dan perbaikan perangkat infrastruktur jaringan internet.</div>
+                            <div class="list-desc">Bertanggung jawab atas pemeliharaan rutin dan perbaikan perangkat infrastruktur jaringan internet. Melakukan monitoring sistem dan troubleshooting untuk memastikan konektivitas jaringan tetap stabil.</div>
                         </div>
 
                         <div class="list-item">
-                            <div class="list-title">Staf IT | Poltekkes Kemenkes Ternate</div>
+                            <div class="list-title">Staf IT</div>
+                            <div class="list-company">Poltekkes Kemenkes Ternate</div>
                             <div class="list-subtitle">2019</div>
-                            <div class="list-desc">Manajemen sistem informasi, layanan laboratorium komputer, serta pemeliharaan data administrasi akademik.</div>
+                            <div class="list-desc">Manajemen sistem informasi, layanan laboratorium komputer, serta pemeliharaan data administrasi akademik. Mendukung kegiatan akademik dengan infrastruktur teknologi yang reliable dan secure.</div>
                         </div>
                         
                         <div class="list-item">
-                            <div class="list-title">Dosen LB | Politeknik Sains &amp; Teknologi Wiratama</div>
+                            <div class="list-title">Dosen Lembaga Belajar</div>
+                            <div class="list-company">Politeknik Sains & Teknologi Wiratama</div>
                             <div class="list-subtitle">2016 - 2018</div>
-                            <div class="list-desc">Merencanakan kurikulum dan mengajarkan program perkuliahan berbasis teknologi kepada mahasiswa.</div>
+                            <div class="list-desc">Merencanakan kurikulum dan mengajarkan program perkuliahan berbasis teknologi kepada mahasiswa. Mengembangkan materi pembelajaran yang relevan dengan industri dan membimbing praktikum laboratorium komputer.</div>
                         </div>
                     </div>
                 </section>
 
                 <!-- Sertifikasi & Pelatihan -->
-                <section class="card">
+                <section class="card" id="sertifikasi">
                     <h2 class="card-title">📜 Sertifikasi & Pelatihan</h2>
-                    <ul class="cert-list">
-                        <li>Cybersecurity for Beginners</li>
-                        <li>CCNA Introduction to Networks</li>
-                        <li>UI/UX Design Mastery (Gold)</li>
-                        <li>Graphic Design and Visual Communication Design</li>
-                        <li>Network and Infrastructure</li>
-                    </ul>
+                    <div class="cert-grid">
+                        <div class="cert-item">
+                            <span class="cert-icon">🔐</span>
+                            <span class="cert-name">Cybersecurity for Beginners</span>
+                        </div>
+                        <div class="cert-item">
+                            <span class="cert-icon">🌐</span>
+                            <span class="cert-name">CCNA Introduction to Networks</span>
+                        </div>
+                        <div class="cert-item">
+                            <span class="cert-icon">✨</span>
+                            <span class="cert-name">UI/UX Design Mastery (Gold)</span>
+                        </div>
+                        <div class="cert-item">
+                            <span class="cert-icon">🎨</span>
+                            <span class="cert-name">Graphic Design & Visual Communication</span>
+                        </div>
+                        <div class="cert-item">
+                            <span class="cert-icon">🔧</span>
+                            <span class="cert-name">Network & Infrastructure</span>
+                        </div>
+                    </div>
                 </section>
 
             </div>
@@ -126,6 +172,10 @@
         <a href="#profil" class="nav-item">
             <span class="nav-icon">👤</span>
             <span>Profil</span>
+        </a>
+        <a href="#skill" class="nav-item">
+            <span class="nav-icon">⚡</span>
+            <span>Skill</span>
         </a>
         <a href="#pengalaman" class="nav-item">
             <span class="nav-icon">💼</span>
@@ -149,6 +199,17 @@
             item.addEventListener('click', function() {
                 deskNavItems.forEach(nav => nav.classList.remove('active'));
                 this.classList.add('active');
+            });
+        });
+
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
     </script>
