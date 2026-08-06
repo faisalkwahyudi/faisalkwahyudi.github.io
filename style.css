@@ -1,0 +1,344 @@
+/* Variabel Warna & Font */
+:root {
+    --primary: #2980b9;
+    --primary-dark: #2c3e50;
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-main: #2c3e50;
+    --text-muted: #6c7a89;
+}
+
+/* Reset & Base */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Layout Utama */
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- SIDEBAR / HEADER --- */
+.sidebar {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    padding: 40px 20px 30px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Style Foto Profil */
+.profile-img-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+}
+.sidebar p {
+    margin: 8px 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Tombol Aksi Cepat */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+.btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: white;
+}
+
+/* Navigasi Desktop (Disembunyikan di Mobile) */
+.desktop-nav {
+    display: none;
+    margin-top: 40px;
+    text-align: left;
+    padding: 0 20px;
+}
+.desktop-nav a {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.desktop-nav a:hover, .desktop-nav a.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding-left: 20px;
+}
+
+/* --- KONTEN UTAMA --- */
+.main-content {
+    padding: 20px;
+    flex: 1;
+    padding-bottom: 90px; 
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Card Style */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+/* List & Timeline */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid #e1e8ed;
+}
+.list-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+.list-item:last-child {
+    margin-bottom: 0;
+}
+.list-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    border: 3px solid var(--card-bg);
+}
+
+.list-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+.list-subtitle {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: inline-block;
+    background: #e9eef6;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+.list-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Chips / Badges */
+.chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.chip {
+    background: #e9eef6;
+    border: 1px solid #d4def0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary-dark);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.chip:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Sertifikasi */
+.cert-list {
+    padding-left: 20px;
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+.cert-list li::marker {
+    color: var(--primary);
+}
+
+/* Navigasi Bawah (App Style untuk Mobile) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 1000;
+}
+.nav-item {
+    text-align: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+.nav-item.active {
+    color: var(--primary);
+}
+.nav-icon {
+    font-size: 1.4rem;
+}
+
+/* =========================================
+   MEDIA QUERIES (DESKTOP & TABLET WIDE)
+   ========================================= */
+@media (min-width: 768px) {
+    .layout-wrapper {
+        flex-direction: row; 
+    }
+
+    .sidebar {
+        width: 320px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.05);
+    }
+
+    .desktop-nav {
+        display: block; 
+        flex: 1;
+    }
+
+    .bottom-nav {
+        display: none; 
+    }
+
+    .main-content {
+        padding: 50px 40px;
+        padding-bottom: 50px; 
+    }
+
+    #profil, #skill, #pengalaman {
+        scroll-margin-top: 40px;
+    }
+
+    /* Styling Tautan Media Sosial */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .social-btn {
+        color: white;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        transition: background 0.2s ease;
+    }
+
+    .social-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* --- SIDEBAR / HEADER --- */
+    .sidebar {
+    /* Opsi 1: Menggunakan gambar background dengan overlay warna gelap agar teks tetap terbaca */
+        background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(52, 152, 219, 0.85)), url('header-bg.jpg');
+        background-size: cover;
+        background-position: center;
+    
+    /* Opsi 2 (Cadangan jika tanpa gambar): 
+    background: linear-gradient(135deg, #3498db, #2c3e50); */
+    
+        color: white;
+        padding: 40px 20px 30px;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+    }
+}
