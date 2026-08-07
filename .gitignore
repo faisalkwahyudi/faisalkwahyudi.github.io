@@ -1,0 +1,12 @@
+.DS_Store
+/uploads
+node_modules/
+.env
+npm-debug.log*
+.env.local
+.vscode/
+.idea/
+# OS files
+Thumbs.db
+# Generated image outputs (optional - uncomment if you don't want to commit generated images)
+# assets/profile/
