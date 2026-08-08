@@ -15,34 +15,58 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+    <!-- Mobile Header (Toggle Menu) -->
+    <header class="mobile-header">
+        <div class="header-content">
+            <h1 class="header-title">Faisal Kharie</h1>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
 
     <div class="layout-wrapper">
         <!-- Sidebar / Header -->
         <aside class="sidebar" id="beranda">
-            
-            <!-- Foto Profil (menggunakan me.jpg di root untuk sementara) -->
+            <!-- Foto Profil -->
             <div class="profile-img-container">
-  <img id="profileImg"
-       src="me.jpg"
-       alt="Foto Profil Faisal Wahyudi Kharie"
-       class="profile-img is-loaded"
-       decoding="async"
-       width="140" height="140">
-  <span class="profile-status" aria-hidden="true" title="Online"></span>
-</div>
-
-            <h1>N. Faisal Wahyudi Kharie</h1>
-            <p class="tagline">IT Professional | Network & Graphic Design</p>
-            
-            <div class="action-buttons">
-                <a href="mailto:faisalkharie92@gmail.com" class="btn" title="Kirim Email">✉️ Email</a>
-                <a href="https://wa.me/qr/63MAXQRK7QF3L1" class="btn" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp">💬 Chat WA</a>
-                <a href="https://instagram.com/n_fwahyudi/" class="btn" target="_blank" rel="noopener noreferrer" title="Instagram">📸 Instagram</a>
-                <a href="https://facebook.com/khariefaisal/" class="btn" target="_blank" rel="noopener noreferrer" title="Facebook">👥 Facebook</a>
-                <a href="https://www.linkedin.com/in/faisalkharie/" class="btn" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼 LinkedIn</a>
+                <img id="profileImg"
+                     src="me.jpg"
+                     alt="Foto Profil Faisal Wahyudi Kharie"
+                     class="profile-img is-loaded"
+                     decoding="async"
+                     width="140" height="140">
+                <span class="profile-status" aria-hidden="true" title="Online"></span>
             </div>
 
-            <!-- Navigasi khusus Desktop -->
+            <h1 class="sidebar-title">N. Faisal Wahyudi Kharie</h1>
+            <p class="tagline">IT Professional | Network & Graphic Design</p>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="mailto:faisalkharie92@gmail.com" class="btn btn-primary" title="Kirim Email">
+                    <span class="btn-icon">✉️</span>
+                    <span class="btn-text">Email</span>
+                </a>
+                <a href="https://wa.me/qr/63MAXQRK7QF3L1" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp">
+                    <span class="btn-icon">💬</span>
+                    <span class="btn-text">Chat WA</span>
+                </a>
+                <a href="https://instagram.com/n_fwahyudi/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" title="Instagram">
+                    <span class="btn-icon">📸</span>
+                    <span class="btn-text">Instagram</span>
+                </a>
+                <a href="https://facebook.com/khariefaisal/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" title="Facebook">
+                    <span class="btn-icon">👥</span>
+                    <span class="btn-text">Facebook</span>
+                </a>
+                <a href="https://www.linkedin.com/in/faisalkharie/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <span class="btn-icon">💼</span>
+                    <span class="btn-text">LinkedIn</span>
+                </a>
+            </div>
+
+            <!-- Navigasi Desktop -->
             <nav class="desktop-nav" aria-label="Navigasi utama">
                 <a href="#profil" class="desk-nav-item">Tentang Saya</a>
                 <a href="#skill" class="desk-nav-item">Kemampuan</a>
@@ -54,21 +78,21 @@
         <!-- Area Konten Utama -->
         <main class="main-content">
             <div class="content-container">
-                
+
                 <!-- Tentang Saya -->
                 <section class="card" id="profil">
                     <h2 class="card-title">👤 Tentang Saya</h2>
                     <div class="list-desc">
-  <p>
-    Lahir di Ternate, 13 Maret 1992. Saya berdedikasi tinggi di bidang Teknologi Informasi dengan keahlian dalam manajemen sistem, infrastruktur jaringan, serta desain komunikasi visual.
-  </p>
-  <details class="read-details" aria-labelledby="profil-details">
-    <summary id="profil-details">Baca detail</summary>
-    <p>
-      Saya memiliki pengalaman dalam pengelolaan server Linux, konfigurasi switch dan router, pembuatan materi desain grafis untuk publikasi internal, serta penerapan praktik keamanan dasar. Saya aktif mengikuti pelatihan CCNA dan kursus UI/UX, dan terbiasa bekerja lintas-tim untuk meningkatkan ketersediaan layanan.
-    </p>
-  </details>
-</div>
+                        <p>
+                            Lahir di Ternate, 13 Maret 1992. Saya berdedikasi tinggi di bidang Teknologi Informasi dengan keahlian dalam manajemen sistem, infrastruktur jaringan, serta desain komunikasi visual.
+                        </p>
+                        <details class="read-details" aria-labelledby="profil-details">
+                            <summary id="profil-details">Baca detail</summary>
+                            <p>
+                                Saya memiliki pengalaman dalam pengelolaan server Linux, konfigurasi switch dan router, pembuatan materi desain grafis untuk publikasi internal, serta penerapan praktik keamanan dasar. Saya berkomitmen untuk terus belajar dan mengembangkan kemampuan teknis serta kreatif.
+                            </p>
+                        </details>
+                    </div>
                 </section>
 
                 <!-- Kemampuan Utama -->
@@ -108,21 +132,21 @@
                 <!-- Pengalaman -->
                 <section class="card" id="pengalaman">
                     <h2 class="card-title">💼 Pengalaman Kerja</h2>
-                    
+
                     <div class="timeline">
                         <div class="list-item">
                             <div class="list-title">National Support Associate & Freelance</div>
                             <div class="list-company">PT Berca Hardayaperkasa</div>
                             <div class="list-subtitle">Jan 2025 - 2026</div>
                             <div class="list-desc">
-  Memberikan dukungan teknis dan operasional IT, serta menangani penyelesaian masalah jaringan secara proaktif.
-  <details class="read-details">
-    <summary>Baca detail</summary>
-    <p>
-      Tanggung jawab termasuk troubleshooting jaringan skala korporat, pemantauan SLA, pembuatan dokumentasi runbook, dan koordinasi perbaikan dengan vendor. Menggunakan alat monitoring dan otomatisasi sederhana untuk deteksi dini dan mitigasi gangguan.
-    </p>
-  </details>
-</div>
+                                Memberikan dukungan teknis dan operasional IT, serta menangani penyelesaian masalah jaringan secara proaktif.
+                                <details class="read-details">
+                                    <summary>Baca detail</summary>
+                                    <p>
+                                        Tanggung jawab termasuk troubleshooting jaringan skala korporat, pemantauan SLA, pembuatan dokumentasi runbook, dan koordinasi perbaikan dengan vendor. Menggunakan alat monitoring dan otomasi untuk meningkatkan efisiensi operasional.
+                                    </p>
+                                </details>
+                            </div>
                         </div>
 
                         <div class="list-item">
@@ -130,14 +154,14 @@
                             <div class="list-company">RSU Dharma Ibu Ternate</div>
                             <div class="list-subtitle">2022 - 2024</div>
                             <div class="list-desc">
-  Mengontrol dan mengelola sistem informasi rumah sakit, jaringan internet, hardware server, serta kebutuhan desain grafis instansi.
-  <details class="read-details">
-    <summary>Baca detail</summary>
-    <p>
-      Fokus pada administrasi sistem rumah sakit, backup dan restore data, konfigurasi jaringan lokal, serta pembuatan materi desain promosi dan komunikasi. Berkolaborasi dengan tim klinis untuk memastikan ketersediaan sistem selama operasional.
-    </p>
-  </details>
-</div>
+                                Mengontrol dan mengelola sistem informasi rumah sakit, jaringan internet, hardware server, serta kebutuhan desain grafis instansi.
+                                <details class="read-details">
+                                    <summary>Baca detail</summary>
+                                    <p>
+                                        Fokus pada administrasi sistem rumah sakit, backup dan restore data, konfigurasi jaringan lokal, serta pembuatan materi desain promosi dan komunikasi. Berkolaborasi dengan tim klinis untuk memastikan kontinuitas layanan IT.
+                                    </p>
+                                </details>
+                            </div>
                         </div>
 
                         <div class="list-item">
@@ -145,14 +169,14 @@
                             <div class="list-company">Loka Monitor SFR</div>
                             <div class="list-subtitle">2020</div>
                             <div class="list-desc">
-  Bertanggung jawab atas pemeliharaan rutin dan perbaikan perangkat infrastruktur jaringan internet.
-  <details class="read-details">
-    <summary>Baca detail</summary>
-    <p>
-      Melakukan inspeksi perangkat, penggantian modul yang bermasalah, dan tuning konfigurasi untuk kestabilan koneksi. Menerapkan prosedur preventive maintenance dan melakukan laporan kondisi perangkat.
-    </p>
-  </details>
-</div>
+                                Bertanggung jawab atas pemeliharaan rutin dan perbaikan perangkat infrastruktur jaringan internet.
+                                <details class="read-details">
+                                    <summary>Baca detail</summary>
+                                    <p>
+                                        Melakukan inspeksi perangkat, penggantian modul yang bermasalah, dan tuning konfigurasi untuk kestabilan koneksi. Menerapkan prosedur preventive maintenance dan melakukan laporan kondisi perangkat berkala.
+                                    </p>
+                                </details>
+                            </div>
                         </div>
 
                         <div class="list-item">
@@ -160,29 +184,29 @@
                             <div class="list-company">Poltekkes Kemenkes Ternate</div>
                             <div class="list-subtitle">2019</div>
                             <div class="list-desc">
-  Manajemen sistem informasi, layanan laboratorium komputer, serta pemeliharaan data administrasi akademik.
-  <details class="read-details">
-    <summary>Baca detail</summary>
-    <p>
-      Menyediakan dukungan helpdesk untuk dosen/mahasiswa, mengatur server lab, serta mengelola backup dan akses data akademik. Terlibat dalam pengaturan jaringan untuk ruangan praktikum dan ujian online.
-    </p>
-  </details>
-</div>
+                                Manajemen sistem informasi, layanan laboratorium komputer, serta pemeliharaan data administrasi akademik.
+                                <details class="read-details">
+                                    <summary>Baca detail</summary>
+                                    <p>
+                                        Menyediakan dukungan helpdesk untuk dosen/mahasiswa, mengatur server lab, serta mengelola backup dan akses data akademik. Terlibat dalam pengaturan jaringan untuk ruangan praktikum dan ujian.
+                                    </p>
+                                </details>
+                            </div>
                         </div>
-                        
+
                         <div class="list-item">
                             <div class="list-title">Dosen Lembaga Belajar</div>
                             <div class="list-company">Politeknik Sains & Teknologi Wiratama</div>
                             <div class="list-subtitle">2016 - 2018</div>
                             <div class="list-desc">
-  Merencanakan kurikulum dan mengajarkan program perkuliahan berbasis teknologi kepada mahasiswa.
-  <details class="read-details">
-    <summary>Baca detail</summary>
-    <p>
-      Menyusun materi pembelajaran, menilai tugas praktikum, dan membimbing proyek mahasiswa. Fokus pada pengajaran teknologi informasi dasar dan praktik jaringan untuk meningkatkan kesiapan kerja mahasiswa.
-    </p>
-  </details>
-</div>
+                                Merencanakan kurikulum dan mengajarkan program perkuliahan berbasis teknologi kepada mahasiswa.
+                                <details class="read-details">
+                                    <summary>Baca detail</summary>
+                                    <p>
+                                        Menyusun materi pembelajaran, menilai tugas praktikum, dan membimbing proyek mahasiswa. Fokus pada pengajaran teknologi informasi dasar dan praktik jaringan untuk meningkatkan kesiapan kerja lulusan.
+                                    </p>
+                                </details>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -218,56 +242,34 @@
         </main>
     </div>
 
-    <!-- Navigasi Bawah (Hanya muncul di Layar Mobile) -->
+    <!-- Navigasi Bawah (Mobile Navigation) -->
     <nav class="bottom-nav" role="navigation" aria-label="Navigasi mobile">
-        <a href="#beranda" class="nav-item active">
+        <a href="#beranda" class="nav-item active" data-section="beranda">
             <span class="nav-icon">🏠</span>
-            <span>Beranda</span>
+            <span class="nav-label">Beranda</span>
         </a>
-        <a href="#profil" class="nav-item">
+        <a href="#profil" class="nav-item" data-section="profil">
             <span class="nav-icon">👤</span>
-            <span>Profil</span>
+            <span class="nav-label">Profil</span>
         </a>
-        <a href="#skill" class="nav-item">
+        <a href="#skill" class="nav-item" data-section="skill">
             <span class="nav-icon">⚡</span>
-            <span>Skill</span>
+            <span class="nav-label">Skill</span>
         </a>
-        <a href="#pengalaman" class="nav-item">
+        <a href="#pengalaman" class="nav-item" data-section="pengalaman">
             <span class="nav-icon">💼</span>
-            <span>Karier</span>
+            <span class="nav-label">Karier</span>
+        </a>
+        <a href="#sertifikasi" class="nav-item" data-section="sertifikasi">
+            <span class="nav-icon">📜</span>
+            <span class="nav-label">Sertif</span>
         </a>
     </nav>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
     <script src="profile.js" defer></script>
-    <script>
-        // Interaksi Navigasi Mobile
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navItems.forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Interaksi Navigasi Desktop
-        const deskNavItems = document.querySelectorAll('.desk-nav-item');
-        deskNavItems.forEach(item => {
-            item.addEventListener('click', function() {
-                deskNavItems.forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Smooth scroll behavior for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
+    <script src="app.js" defer></script>
 </body>
 </html>
