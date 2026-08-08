@@ -23,3 +23,50 @@
 @media (min-width:421px) and (max-width:767px) { .profile-media { width:110px; height:110px; } }
 .btn.small { font-size:.85rem; padding:6px 8px; border-radius:10px; }
 .profile-actions { display:flex; gap:8px; margin-top:6px; flex-wrap:wrap; justify-content:center; }
+/* --- Perbaikan layout & Read-details styling --- */
+
+/* Pastikan container foto profil punya positioning dan ukuran */
+.profile-img-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+/* Responsive ukuran container (samakan dengan media queries sebelumnya) */
+@media (max-width:420px) { .profile-img-container { width:96px; height:96px; } }
+@media (min-width:421px) and (max-width:767px) { .profile-img-container { width:110px; height:110px; } }
+
+/* Styling untuk tombol 'Baca detail' */
+.read-details {
+  margin-top: 0.5rem;
+  border-left: 3px solid rgba(0,0,0,0.06);
+  padding-left: 0.8rem;
+  background: rgba(0,0,0,0.01);
+  border-radius: 6px;
+}
+
+.read-details summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0b66c3;
+  margin-bottom: 0.25rem;
+  outline: none;
+}
+
+.read-details summary::-webkit-details-marker { display: none; }
+.read-details summary::marker { font-size: 0; }
+.read-details summary::after {
+  content: ' ▾';
+  font-weight: 600;
+  margin-left: 0.35rem;
+  transition: transform .18s ease;
+}
+.read-details[open] summary::after {
+  transform: rotate(-180deg);
+}
+
+.read-details p { margin: 0.4rem 0 0; color: #333; line-height: 1.45; }
+.list-desc { margin-top: 0.4rem; }
+
+@media (prefers-reduced-motion: reduce) { .read-details summary::after { transition: none; } }
