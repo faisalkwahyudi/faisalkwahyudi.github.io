@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const UPLOAD_URL = window.PROFILE_UPLOAD_URL || 'http://localhost:3000/upload';
 
   function setSrcsetAndLoad(){
-    const srcset = img && img.getAttribute && img.getAttribute('data-srcset');
-    if (!srcset || !img) return;
+    const srcset = img.getAttribute('data-srcset');
+    if (!srcset) return;
     img.srcset = srcset;
     const fallback = srcset.split(',').pop().trim().split(' ')[0];
     if (fallback) img.src = fallback;
   }
 
-  if (img && 'IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -30,18 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
     io.observe(img);
   } else {
     setSrcsetAndLoad();
-    if (img) { img.classList.remove('is-loading'); img.classList.add('is-loaded'); }
+    img.classList.remove('is-loading'); img.classList.add('is-loaded');
   }
 
-  if (uploadBtn && fileInput) uploadBtn.addEventListener('click', () => fileInput.click());
-  if (fileInput) fileInput.addEventListener('change', async ev => {
+  uploadBtn.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', async ev => {
     const file = ev.target.files && ev.target.files[0];
     if (!file) return;
     previewFile(file);
     await uploadFile(file);
   });
 
-  if (cameraBtn) cameraBtn.addEventListener('click', async () => {
+  cameraBtn.addEventListener('click', async () => {
     const captureInput = document.createElement('input');
     captureInput.type = 'file';
     captureInput.accept = 'image/*';
@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function previewFile(file){
-    if (!img) return;
     const url = URL.createObjectURL(file);
     img.classList.remove('is-loaded'); img.classList.add('is-loading');
     img.src = url;
@@ -89,16 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Gagal mengunggah foto. Coba lagi.');
     }
   }
-
-  // --- Read-details toggle label logic (ubah "Baca detail" -> "Tutup" saat terbuka) ---
-  document.querySelectorAll('.read-details').forEach(details => {
-    const summary = details.querySelector('summary');
-    if (!summary) return;
-    const closedText = summary.textContent.trim() || 'Baca detail';
-    const openText = 'Tutup';
-    const update = () => { summary.textContent = details.open ? openText : closedText; };
-    update();
-    details.addEventListener('toggle', update);
-  });
-
 });

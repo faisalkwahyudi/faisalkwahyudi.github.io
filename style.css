@@ -1,33 +1,636 @@
-/* --- Read-details styling --- */
-.read-details {
-  margin-top: 0.5rem;
-  border-left: 3px solid rgba(0,0,0,0.06);
-  padding-left: 0.8rem;
-  background: rgba(0,0,0,0.01);
-  border-radius: 6px;
+/* Variabel Warna & Font */
+:root {
+    --primary: #2980b9;
+    --primary-dark: #f0f2f3;
+    --primary-dark-btn: #2c3e50;
+    --primary-light: #3498db;
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-main: #2c3e50;
+    --text-muted: #6c7a89;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --border-color: #e1e8ed;
+    --transition: all 0.25s ease;
 }
 
-.read-details summary {
-  list-style: none;
-  cursor: pointer;
-  font-weight: 600;
-  color: #0b66c3;
-  margin-bottom: 0.25rem;
-  outline: none;
+/* Reset & Base */
+html {
+    scroll-behavior: smooth;
 }
 
-.read-details summary::-webkit-details-marker { display: none; }
-.read-details summary::marker { font-size: 0; }
-.read-details summary::after {
-  content: ' ▾';
-  font-weight: 600;
-  margin-left: 0.35rem;
-  transition: transform .18s ease;
-}
-.read-details[open] summary::after {
-  transform: rotate(-180deg);
+* {
+    box-sizing: border-box;
 }
 
-.read-details p { margin: 0.4rem 0 0; color: #333; line-height: 1.45; }
-.list-desc { margin-top: 0.4rem; }
-@media (prefers-reduced-motion: reduce) { .read-details summary::after { transition: none; } }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout Utama */
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- SIDEBAR / HEADER --- */
+.sidebar {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    padding: 28px 16px 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Style Foto Profil */
+.profile-img-container {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+    transition: transform 0.25s ease;
+    flex-shrink: 0; /* jangan kecilkan ketika sidebar menjadi area flex */
+}
+
+.profile-img-container:hover {
+    transform: scale(1.03);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sidebar h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+    flex-shrink: 0; /* pastikan nama tidak tersusut */
+}
+
+.sidebar p, .tagline {
+    margin: 6px 0 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+    flex-shrink: 0;
+}
+
+/* Tombol Aksi Cepat (Email, WA, & Media Sosial) */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+    flex-shrink: 0;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    transition: var(--transition);
+    cursor: pointer;
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover, .btn:focus {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Navigasi Desktop (Disembunyikan di Mobile) */
+.desktop-nav {
+    display: none;
+    margin-top: 28px;
+    text-align: left;
+    padding: 0 8px;
+    flex-direction: column;
+    gap: 8px;
+    /* allow nav itself to scroll when sidebar has limited height */
+    max-height: calc(100vh - 340px);
+    overflow: auto;
+}
+
+.desktop-nav a {
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.desktop-nav a:hover, .desktop-nav a.active {
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    padding-left: 18px;
+}
+
+/* --- KONTEN UTAMA --- */
+.main-content {
+    padding: 18px;
+    flex: 1;
+    padding-bottom: 110px; /* ruang untuk bottom nav pada mobile */
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Card Style */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 12px;
+    color: var(--primary-dark);
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.skill-category h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0 0 12px 0;
+}
+
+/* List & Timeline */
+.timeline {
+    position: relative;
+    padding-left: 18px;
+    border-left: 3px solid var(--border-color);
+}
+
+.list-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+}
+
+.list-item:last-child {
+    margin-bottom: 0;
+}
+
+.list-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    border: 3px solid var(--card-bg);
+    box-shadow: 0 0 0 3px var(--border-color);
+}
+
+.list-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+.list-company {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.list-subtitle {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: inline-block;
+    background: #e9eef6;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+.list-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Chips / Badges */
+.chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.chip {
+    background: #e9eef6;
+    border: 1px solid #d4def0;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary-dark-btn);
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.chip:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Sertifikasi Grid */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.cert-item {
+    background: linear-gradient(135deg, #e9eef6, #f0f5fb);
+    border: 1px solid #d4def0;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.cert-item:hover {
+    background: linear-gradient(135deg, var(--primary), #3498db);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(41, 128, 185, 0.18);
+}
+
+.cert-icon {
+    font-size: 1.6rem;
+}
+
+.cert-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.cert-item:hover .cert-name {
+    color: white;
+}
+
+/* Navigasi Bawah (App Style untuk Mobile) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    z-index: 1000;
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-item {
+    text-align: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 6px 8px;
+}
+
+.nav-item:hover {
+    color: var(--primary);
+}
+
+.nav-item.active {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.nav-icon {
+    font-size: 1.4rem;
+}
+
+/* Accessibility helpers */
+.sr-only { /* screen-reader only */
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+/* =========================================
+   MEDIA QUERIES (DESKTOP & TABLET WIDE)
+   ========================================= */
+@media (min-width: 768px) {
+    .layout-wrapper {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 320px;
+        max-height: 100vh; /* limit sidebar height to viewport */
+        position: sticky;
+        top: calc(0px + env(safe-area-inset-top)); /* respect notch / safe area */
+        padding-top: calc(60px + env(safe-area-inset-top));
+        display: flex;
+        flex-direction: column;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
+        overflow: auto; /* enable internal scrolling only when needed */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: rgba(255,255,255,0.18) transparent;
+    }
+
+    /* WebKit scrollbars for sidebar */
+    .sidebar::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.16);
+        border-radius: 999px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255,255,255,0.22);
+    }
+
+    .sidebar h1 {
+        font-size: 1.8rem;
+    }
+
+    .desktop-nav {
+        display: flex;
+        flex: 1;
+    }
+
+    .bottom-nav {
+        display: none;
+    }
+
+    .main-content {
+        padding: 40px 36px;
+        padding-bottom: 50px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    #profil, #skill, #pengalaman, #sertifikasi {
+        scroll-margin-top: 40px;
+    }
+
+    /* Skills Grid - Responsive untuk desktop */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Certificate Grid untuk Desktop */
+    .cert-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    /* Styling Tautan Media Sosial */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .social-btn {
+        color: white;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        transition: background 0.2s ease;
+    }
+
+    .social-btn:hover {
+        background: rgba(255, 255, 255, 0.22);
+    }
+}
+
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+
+    .content-container {
+        max-width: 900px;
+    }
+}
+
+/* Small devices / mobile tweaks */
+@media (max-width: 767px) {
+    /* Reduce paddings to give more screen space */
+    .sidebar {
+        padding: 18px 12px;
+    }
+
+    .profile-img-container {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 12px;
+    }
+
+    .sidebar h1 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        padding: 14px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom) + 56px);
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card-title {
+        font-size: 1.05rem;
+        padding-bottom: 8px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr; /* single column for narrow screens */
+        gap: 14px;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .list-item::before {
+        left: -18px;
+        width: 9px;
+        height: 9px;
+    }
+
+    /* make action buttons easier to tap */
+    .action-buttons {
+        gap: 8px;
+    }
+
+    /* Ensure long sidebar text wraps and doesn't overflow */
+    .sidebar, .desktop-nav a {
+        word-break: break-word;
+    }
+}
+
+/* Very small devices (narrow phones) */
+@media (max-width: 420px) {
+    .profile-img-container {
+        width: 96px;
+        height: 96px;
+    }
+
+    .sidebar h1 {
+        font-size: 1.05rem;
+    }
+
+    .btn {
+        padding: 9px 12px;
+        font-size: 0.88rem;
+    }
+
+    .nav-icon { font-size: 1.25rem; }
+
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+
+    .content-container { padding: 0 6px; }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0f1724;
+        --card-bg: #0b1220;
+        --text-main: #e6eef8;
+        --text-muted: #9fb0c6;
+        --border-color: #1f2a3a;
+    }
+
+    .card {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .bottom-nav,
+    .action-buttons {
+        display: none;
+    }
+
+    .layout-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    .main-content {
+        padding-bottom: 20px;
+    }
+}
