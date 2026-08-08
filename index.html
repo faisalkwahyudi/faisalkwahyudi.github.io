@@ -20,24 +20,16 @@
         <!-- Sidebar / Header -->
         <aside class="sidebar" id="beranda">
             
-            <!-- Foto Profil (dinamis widget) -->
+            <!-- Foto Profil (menggunakan me.jpg di root untuk sementara) -->
             <div class="profile-img-container">
-                <picture id="profilePicture">
-      <!-- Modern formats first -->
-      <source type="image/avif" srcset="assets/profile/me-320.avif 320w, assets/profile/me-640.avif 640w, assets/profile/me-1280.avif 1280w" sizes="(max-width: 420px) 96px, (max-width:768px) 110px, 140px">
-      <source type="image/webp" srcset="assets/profile/me-320.webp 320w, assets/profile/me-640.webp 640w, assets/profile/me-1280.webp 1280w" sizes="(max-width: 420px) 96px, (max-width:768px) 110px, 140px">
-      <!-- LQIP tiny placeholder as starting src -->
-      <img id="profileImg"
-           src="assets/profile/me-lqip.jpg"
-           data-srcset="assets/profile/me-320.jpg 320w, assets/profile/me-640.jpg 640w, assets/profile/me-1280.jpg 1280w"
-           alt="Foto Profil Faisal Wahyudi Kharie"
-           class="profile-img is-loading"
-           decoding="async"
-           width="140" height="140">
-    </picture>
-
-    <span class="profile-status" aria-hidden="true" title="Online"></span>
-            </div>
+  <img id="profileImg"
+       src="me.jpg"
+       alt="Foto Profil Faisal Wahyudi Kharie"
+       class="profile-img is-loaded"
+       decoding="async"
+       width="140" height="140">
+  <span class="profile-status" aria-hidden="true" title="Online"></span>
+</div>
 
             <h1>N. Faisal Wahyudi Kharie</h1>
             <p class="tagline">IT Professional | Network & Graphic Design</p>
@@ -67,8 +59,16 @@
                 <section class="card" id="profil">
                     <h2 class="card-title">👤 Tentang Saya</h2>
                     <div class="list-desc">
-                        Lahir di Ternate, 13 Maret 1992. Saya berdedikasi tinggi di bidang Teknologi Informasi dengan keahlian dalam manajemen sistem, infrastruktur jaringan, serta desain komunikasi v[...]
-                    </div>
+  <p>
+    Lahir di Ternate, 13 Maret 1992. Saya berdedikasi tinggi di bidang Teknologi Informasi dengan keahlian dalam manajemen sistem, infrastruktur jaringan, serta desain komunikasi visual.
+  </p>
+  <details class="read-details" aria-labelledby="profil-details">
+    <summary id="profil-details">Baca detail</summary>
+    <p>
+      Saya memiliki pengalaman dalam pengelolaan server Linux, konfigurasi switch dan router, pembuatan materi desain grafis untuk publikasi internal, serta penerapan praktik keamanan dasar. Saya aktif mengikuti pelatihan CCNA dan kursus UI/UX, dan terbiasa bekerja lintas-tim untuk meningkatkan ketersediaan layanan.
+    </p>
+  </details>
+</div>
                 </section>
 
                 <!-- Kemampuan Utama -->
@@ -114,35 +114,75 @@
                             <div class="list-title">National Support Associate & Freelance</div>
                             <div class="list-company">PT Berca Hardayaperkasa</div>
                             <div class="list-subtitle">Jan 2026 - Sekarang</div>
-                            <div class="list-desc">Memberikan dukungan teknis dan operasional IT, serta menangani penyelesaian masalah jaringan secara proaktif. Berkolaborasi dengan tim untuk memastik[...]
+                            <div class="list-desc">
+  Memberikan dukungan teknis dan operasional IT, serta menangani penyelesaian masalah jaringan secara proaktif.
+  <details class="read-details">
+    <summary>Baca detail</summary>
+    <p>
+      Tanggung jawab termasuk troubleshooting jaringan skala korporat, pemantauan SLA, pembuatan dokumentasi runbook, dan koordinasi perbaikan dengan vendor. Menggunakan alat monitoring dan otomatisasi sederhana untuk deteksi dini dan mitigasi gangguan.
+    </p>
+  </details>
+</div>
                         </div>
 
                         <div class="list-item">
                             <div class="list-title">Staf IT</div>
                             <div class="list-company">RSU Dharma Ibu Ternate</div>
                             <div class="list-subtitle">2022 - 2024</div>
-                            <div class="list-desc">Mengontrol dan mengelola sistem informasi rumah sakit, jaringan internet, hardware server, serta kebutuhan desain grafis instansi. Melakukan maintena[...]
+                            <div class="list-desc">
+  Mengontrol dan mengelola sistem informasi rumah sakit, jaringan internet, hardware server, serta kebutuhan desain grafis instansi.
+  <details class="read-details">
+    <summary>Baca detail</summary>
+    <p>
+      Fokus pada administrasi sistem rumah sakit, backup dan restore data, konfigurasi jaringan lokal, serta pembuatan materi desain promosi dan komunikasi. Berkolaborasi dengan tim klinis untuk memastikan ketersediaan sistem selama operasional.
+    </p>
+  </details>
+</div>
                         </div>
 
                         <div class="list-item">
                             <div class="list-title">Maintenance Jaringan</div>
                             <div class="list-company">Loka Monitor SFR</div>
                             <div class="list-subtitle">2020</div>
-                            <div class="list-desc">Bertanggung jawab atas pemeliharaan rutin dan perbaikan perangkat infrastruktur jaringan internet. Melakukan monitoring sistem dan troubleshooting un[...]
+                            <div class="list-desc">
+  Bertanggung jawab atas pemeliharaan rutin dan perbaikan perangkat infrastruktur jaringan internet.
+  <details class="read-details">
+    <summary>Baca detail</summary>
+    <p>
+      Melakukan inspeksi perangkat, penggantian modul yang bermasalah, dan tuning konfigurasi untuk kestabilan koneksi. Menerapkan prosedur preventive maintenance dan melakukan laporan kondisi perangkat.
+    </p>
+  </details>
+</div>
                         </div>
 
                         <div class="list-item">
                             <div class="list-title">Staf IT</div>
                             <div class="list-company">Poltekkes Kemenkes Ternate</div>
                             <div class="list-subtitle">2019</div>
-                            <div class="list-desc">Manajemen sistem informasi, layanan laboratorium komputer, serta pemeliharaan data administrasi akademik. Mendukung kegiatan akademik dengan infrastr[...]
+                            <div class="list-desc">
+  Manajemen sistem informasi, layanan laboratorium komputer, serta pemeliharaan data administrasi akademik.
+  <details class="read-details">
+    <summary>Baca detail</summary>
+    <p>
+      Menyediakan dukungan helpdesk untuk dosen/mahasiswa, mengatur server lab, serta mengelola backup dan akses data akademik. Terlibat dalam pengaturan jaringan untuk ruangan praktikum dan ujian online.
+    </p>
+  </details>
+</div>
                         </div>
                         
                         <div class="list-item">
                             <div class="list-title">Dosen Lembaga Belajar</div>
                             <div class="list-company">Politeknik Sains & Teknologi Wiratama</div>
                             <div class="list-subtitle">2016 - 2018</div>
-                            <div class="list-desc">Merencanakan kurikulum dan mengajarkan program perkuliahan berbasis teknologi kepada mahasiswa. Mengembangkan materi pembelajaran yang relevan dengan[...]
+                            <div class="list-desc">
+  Merencanakan kurikulum dan mengajarkan program perkuliahan berbasis teknologi kepada mahasiswa.
+  <details class="read-details">
+    <summary>Baca detail</summary>
+    <p>
+      Menyusun materi pembelajaran, menilai tugas praktikum, dan membimbing proyek mahasiswa. Fokus pada pengajaran teknologi informasi dasar dan praktik jaringan untuk meningkatkan kesiapan kerja mahasiswa.
+    </p>
+  </details>
+</div>
                         </div>
                     </div>
                 </section>
